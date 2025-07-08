@@ -14,6 +14,7 @@ void ExibirOpcoes()
     Console.WriteLine("\t1. Boas Vindas");
     Console.WriteLine("\t2. Nome e Sobrenome");
     Console.WriteLine("\t3. Dois Valores");
+    Console.WriteLine("\t4. Conta Caracteres");
     Console.WriteLine("\t0. Sair");
 }
 
@@ -34,6 +35,9 @@ void ExecutarOpcoes()
             break;
         case "3":
             DoisValores();  
+            break;
+        case "4":
+            ContaCaracteres();
             break;
         default:
             Console.WriteLine("Opção Inválida!!");
@@ -104,4 +108,13 @@ void DoisValores()
 
 }
 
-
+void ContaCaracteres()
+{
+    // Crie um programa em que o usuário digita uma ou mais palavras e é exibido a quantidade de caracteres
+    // que a palavra inserida tem.
+    Console.WriteLine("\nCONTA CARACTERES");
+    Console.Write("Digite uma ou mais palavras: ");
+    var palavrasRecebidas = Console.ReadLine();
+    int quantidadeCaracteres = palavrasRecebidas!.Length;
+    Console.WriteLine($"Quantidade de caracteres que a palavra inserida tem: {quantidadeCaracteres}");
+}
