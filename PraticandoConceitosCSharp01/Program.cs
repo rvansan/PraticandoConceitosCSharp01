@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using System.Security.Cryptography;
 using System.Text;
 
 bool executar = true;
@@ -17,6 +18,7 @@ void ExibirOpcoes()
     Console.WriteLine("\t3. Dois Valores");
     Console.WriteLine("\t4. Conta Caracteres");
     Console.WriteLine("\t5. Verifica Placa");
+    Console.WriteLine("\t6. Exibe Horas");
     Console.WriteLine("\t0. Sair");
 }
 
@@ -43,6 +45,9 @@ void ExecutarOpcoes()
             break;
         case "5":
             VerificaPlaca();
+            break;
+        case "6":
+            ExibeHoras();
             break;
         default:
             Console.WriteLine("Opção Inválida!!");
@@ -152,4 +157,20 @@ void VerificaPlaca()
         Console.WriteLine("***Falso***");
     else
         Console.WriteLine("***Verdadeiro***");
+}
+
+void ExibeHoras()
+{
+    //  Crie um programa que solicita ao usuário a exibição da data atual em diferentes formatos:
+    //    -Formato completo(dia da semana, dia do mês, mês, ano, hora, minutos, segundos).
+    //    - Apenas a data no formato "01/03/2024".
+    //    - Apenas a hora no formato de 24 horas.
+    //    - A data com o mês por extenso.
+    Console.WriteLine("\nEXIBE HORAS");
+    var now = DateTime.Now;
+    Console.WriteLine($"Formato completo: {now.ToString("dddd, dd/MM/yyyy HH:mm:ss")}");
+    Console.WriteLine($"Apenas a data no formato \"01/03/2024\": {now.ToString("dd/MM/yyyy")}");
+    Console.WriteLine($"Apenas a hora no formato de 24 horas: {now.ToString("HH:mm:ss")}");
+    Console.WriteLine($"A data com o mês por extenso: {now.ToString("dd MMMM yyyy")}");
+
 }
