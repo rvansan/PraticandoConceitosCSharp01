@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Numerics;
+using System.Text;
 
 bool executar = true;
 do
@@ -15,6 +16,7 @@ void ExibirOpcoes()
     Console.WriteLine("\t2. Nome e Sobrenome");
     Console.WriteLine("\t3. Dois Valores");
     Console.WriteLine("\t4. Conta Caracteres");
+    Console.WriteLine("\t5. Verifica Placa");
     Console.WriteLine("\t0. Sair");
 }
 
@@ -38,6 +40,9 @@ void ExecutarOpcoes()
             break;
         case "4":
             ContaCaracteres();
+            break;
+        case "5":
+            VerificaPlaca();
             break;
         default:
             Console.WriteLine("Opção Inválida!!");
@@ -117,4 +122,34 @@ void ContaCaracteres()
     var palavrasRecebidas = Console.ReadLine();
     int quantidadeCaracteres = palavrasRecebidas!.Length;
     Console.WriteLine($"Quantidade de caracteres que a palavra inserida tem: {quantidadeCaracteres}");
+}
+
+void VerificaPlaca()
+{
+    //1.Crie um programa em que o usuário precisa digitar a placa de um veículo e o programa verifica se a
+    //placa é válida, seguindo o padrão brasileiro válido até 2018:
+    //-A placa deve ter 7 caracteres alfanuméricos;
+    //-Os três primeiros caracteres são letras (maiúsculas ou minúsculas);
+    //-Os quatro últimos caracteres são números;
+    //Ao final, o programa deve exibir ***Verdadeiro*** se a placa for
+    //válida e ***Falso*** caso contrário.
+    Console.WriteLine("\nVERIFICA PLACA");
+
+    Console.Write("Digite uma placa de veículo: ");
+    var placaDigitada = Console.ReadLine();
+    int quantidadeCaracteres = placaDigitada!.Length;
+
+    if (quantidadeCaracteres != 7)  
+        Console.WriteLine("***Falso***");   
+    else if (!(char.IsLetter(placaDigitada[0]) && 
+                char.IsLetter(placaDigitada[1]) && 
+                char.IsLetter(placaDigitada[2])) )
+        Console.WriteLine("***Falso***");
+    else if (!(char.IsDigit(placaDigitada[3]) &&
+                char.IsDigit(placaDigitada[4]) &&
+                char.IsDigit(placaDigitada[5]) &&
+                char.IsDigit(placaDigitada[6])))
+        Console.WriteLine("***Falso***");
+    else
+        Console.WriteLine("***Verdadeiro***");
 }
